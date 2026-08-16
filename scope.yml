@@ -1,0 +1,59 @@
+programs:
+  yellowcard:
+    name: Yellow Card Bug Bounty
+    disclosure_policy: https://yellowcard.io/blog/yellow-card-bug-bounty-program
+    contact: bugbounty@yellowcard.io
+    targets:
+      - portal.yellowcard.io   # Treasury portal — UNAUTHENTICATED SURFACE ONLY
+    github_orgs: []
+    rewards: "flexible, severity-based (Level 0 Info .. Level 4 Critical), no set min/max"
+
+rules:
+  # CRITICAL: testing limited to the UNAUTHENTICATED surface only (login page,
+  # password reset flow, public-facing HTTP endpoints, TLS/header config).
+  # MUST halt immediately and report if you stumble into any authenticated session
+  # or business account data.
+  unauth_only: true
+  halt_on_auth_data: true   # stop + report immediately on any auth'd session/account data
+  no_account_creation: true
+  no_data_modification: true
+  no_denial_of_service: true
+  no_social_engineering: true
+  no_automated_scanning_only: true  # reports resulting from automated scanning are ineligible
+  no_pre_disclosure: true
+  redact_secrets_in_commits: true
+
+# Yellow Card EXCLUSIONS (do not spend cycles, do not report)
+rejected_classes:
+  - "Issues already known / previously reported"
+  - "Determined acceptable risk"
+  - "Reports resulting from automated scanning"
+  - "Social engineering"
+  - "Network-level DoS / Denial of wallet / app DoS by locking accounts"
+  - "Brute force on signup/login/forgot password"
+  - "Enforcement policies for brute force, rate limiting, account lockout"
+  - "Missing HTTP security headers"
+  - "Cookie issues"
+  - "SSL issues (BEAST/BREACH/Renegotiation)"
+  - "Clickjacking without specific exploit"
+  - "Mail config (SPF/DKIM/DMARC)"
+  - "Known-vulnerable library (no exploit)"
+  - "3rd party apps not affecting their data/service"
+  - "Browser/plugin defects"
+  - "Descriptive error messages/headers (stack traces, banner)"
+  - "Disclosure of known public files (robots.txt)"
+  - "Cookies lacking HttpOnly/Secure for non-sensitive data"
+
+# What PAYS (they explicitly want):
+# - Customer data leaks
+# - Full compromise of a system
+# - Business logic bypass with significant financial/reputational impact
+# - Authentication/authorization bypass
+# - Major operational failure (non-DoS)
+
+models:
+  - { id: opencode/big-pickle, name: bigpickle }
+  - { id: opencode/nemotron-3-ultra-free, name: nemotron3 }
+  - { id: opencode/longcat-2.0-free, name: longcat }
+  - { id: opencode/ling-3.0-flash-free, name: ling3 }
+  - { id: opencode/laguna-s-2.1-free, name: laguna }

@@ -1,0 +1,8 @@
+# Yellow Card bug bounty — seed scope (scope = portal.yellowcard.io Treasury portal ONLY, unauth surface)
+portal.yellowcard.io
+www.yellowcard.io
+yellowcard.io
+api.yellowcard.io
+login.yellowcard.io
+auth.yellowcard.io
+docs.yellowcard.engineering
