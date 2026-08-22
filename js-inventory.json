@@ -1,0 +1,30 @@
+[
+ {
+  "url": "https://agicap.com/scripts/segment_middleware.js",
+  "status": "done"
+ },
+ {
+  "url": "https://agicap.com//js.hs-scripts.com/2856475.js",
+  "status": "error"
+ },
+ {
+  "url": "https://agicap.com/app-90c9c307f5dc23ad5526.js",
+  "status": "done"
+ },
+ {
+  "url": "https://agicap.com/framework-0f51bad516d23164d80b.js",
+  "status": "done"
+ },
+ {
+  "url": "https://agicap.com/webpack-runtime-5311390d61972a312eb3.js",
+  "status": "done"
+ },
+ {
+  "url": "https://agicap.chilipiper.com/concierge-js/cjs/concierge.js",
+  "status": "done"
+ },
+ {
+  "url": "https://challenges.cloudflare.com/turnstile/v0/api.js",
+  "status": "done"
+ }
+]
