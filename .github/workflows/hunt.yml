@@ -79,7 +79,7 @@ jobs:
       - name: Analyst run (8-step methodology)
         run: |
           cat > analyst-prompt.txt << 'PROMPT_START'
-          You are a senior bug bounty ANALYST for target ${TARGET} (portal.yellowcard.io Treasury portal). TESTING IS UNAUTHENTICATED-SURFACE ONLY. Scope + rules are above — the scope.yml rejected_classes list is the Agicap policy (CORS/headers/TLS/DNS/rate-limit/self-XSS/low-value-CSRF/MiTM/non-exploitable are NOT reportable). Never propose those. Run these 8 steps and output ONLY the structured blocks.
+          You are a senior bug bounty ANALYST for target ${TARGET} (portal.yellowcard.io Treasury portal). TESTING IS UNAUTHENTICATED-SURFACE ONLY. Scope + rules are above — the scope.yml rejected_classes list is the Yellow Card policy (CORS/headers/TLS/DNS/rate-limit/self-XSS/low-value-CSRF/MiTM/non-exploitable are NOT reportable). Never propose those. Run these 8 steps and output ONLY the structured blocks.
           MAX MODE (ox-alpha-free 1M ctx): dig DEEPER + FASTER. Directives:
           - Hunt HIGH-VALUE classes first: broken auth/session handling, IDOR/BOLA, SSRF-to-cloud-metadata (169.254.169.254), mass assignment, JWT alg/key confusion, OAuth redirect_uri/state flaws, business logic on money/auth flows, file upload, GraphQL introspection+mutations.
           - CHAIN primitives aggressively: open redirect -> OAuth code theft -> ATO; XSS -> session theft -> ATO; IDOR -> cross-tenant PII dump; SSRF -> metadata -> keys. One chained lead beats ten weak ones.
@@ -110,7 +110,7 @@ jobs:
 
           STEP 6 — LEARNING: Emit [LEARN] lines for any class newly proven dead or alive (REJECTED/ACCEPTED <class> @ <asset>: <reason>).
 
-          STEP 7 — RISK SCORE: Emit [RISK] agicap: <0-100> reason.
+          STEP 7 — RISK SCORE: Emit [RISK] yellowcard: <0-100> reason.
 
           RULES: facts vs hypotheses strictly separated; no class on the rejected list; never mention secrets in full (hash them with sha256sum); all claims trace to context or your own read-only probes. Prefer fintech high-impact classes: IDOR on accounts/cashflow/invoices/banking, auth bypass, business logic.
           PROMPT_START
