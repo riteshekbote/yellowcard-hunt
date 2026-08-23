@@ -1,6 +1,6 @@
 name: JS Recon (yellowcard)
 
-# Collects JavaScript + config inventory from the live Agicap hosts (inventory/live.txt)
+# Collects JavaScript + config inventory from the live Yellow Card hosts (inventory/live.txt)
 # then does a deterministic extractor (endpoints, sourcemaps, keys) + opencode deep pass
 # over the highest-value files. One batch per run, state in js-inventory.json.
 
@@ -75,7 +75,7 @@ jobs:
                   m = re.match(r'https?://[^\s]+', line)
                   if m: hosts.append(m.group(0).split()[0])
           except OSError: pass
-          seeds = hosts[:20] or ['https://agicap.com/', 'https://app.agicap.com/']
+          seeds = hosts[:20] or ["https://yellowcard.io/", "https://app.yellowcard.io/"]
           inv = json.load(open('js-inventory.json')) if os.path.exists('js-inventory.json') else []
           have = {i['url'] for i in inv}
           new = []
