@@ -41,7 +41,7 @@ jobs:
             for e in d:
               for n in (e.get("name_value") or "").split("\n"):
                 n=n.strip().lstrip("*.")
-                if n.endswith("agicap.com"): names.add(n)
+                if n.endswith("yellowcard.io"): names.add(n)
             open("/tmp/crt.txt","w").write("\n".join(sorted(names)))
             print("crt count:", len(names))
           except Exception as ex: print("crt err", ex)
